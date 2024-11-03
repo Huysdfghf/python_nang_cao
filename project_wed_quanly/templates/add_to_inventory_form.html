@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Xóa Sách</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+<body>
+    <h1>Nhập Kho Hàng</h1>
+    <form action="/add_to_inventory" method="post">
+        <label for="book_id">ID Sách:</label>
+        <input type="text" name="book_id" required>
+        
+        <label for="quantity">Số Lượng Nhập:</label>
+        <input type="text" name="quantity" required>
+        
+        <label for="inventory_name">Tên Kho:</label>
+        <input type="text" name="inventory_name" required>
+        
+        <label for="inventory_address">Địa Chỉ Kho:</label>
+        <input type="text" name="inventory_address" required>
+        
+        <button type="submit">Nhập Kho</button>
+    </form>
+    <a href="/employee_dashboard">Quay lại Bảng Điều Khiển</a>
+</body>
+</html>

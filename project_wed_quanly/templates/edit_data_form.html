@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Xóa Sách</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+<body>
+    <h1>Sửa Thông Tin Sách</h1>
+
+    <!-- Hiển thị thông báo flash chỉ ở đây -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="/edit_data" method="post">
+        <label for="book_id">ID Sách:</label>
+        <input type="text" name="book_id" required>
+        
+        <label for="new_name">Tên Sách Mới:</label>
+        <input type="text" name="new_name">
+        
+        <label for="new_price">Giá Mới:</label>
+        <input type="text" name="new_price">
+        
+        <button type="submit">Sửa Thông Tin</button>
+    </form>
+    <a href="/employee_dashboard">Quay lại Bảng Điều Khiển</a>
+</body>
+</html>

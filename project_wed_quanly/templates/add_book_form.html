@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Xóa Sách</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <h1>Thêm Sách Mới</h1>
+    <form action="/add_book" method="post">
+        <label for="book_name">Tên Sách:</label>
+        <input type="text" name="book_name" required>
+        
+        <label for="author_id">ID Tác Giả:</label>
+        <input type="text" name="author_id" required>
+        
+        <label for="price">Giá:</label>
+        <input type="text" name="price" required>
+        
+        <label for="publisher_id">ID Nhà Xuất Bản:</label>
+        <input type="text" name="publisher_id" required>
+        
+        <button type="submit">Thêm Sách</button>
+    </form>
+    
+    <a href="/employee_dashboard">Quay lại Bảng Điều Khiển</a>
+</body>
+</html>

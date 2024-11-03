@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #000000; /* Đặt màu chữ đen để tương phản với nền trắng */
+    background: url("../images/photo-1-1552354590822522314238.webp") no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #ff4444;
+}
+
+/* Khung bảng */
+.table-container {
+    width: 80%;
+    background-color: white; /* Nền bảng màu trắng */
+    border: 2px solid #000; /* Đường viền khung bảng màu đen */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Bóng đổ cho khung */
+    padding: 20px; /* Thêm khoảng cách bên trong bảng */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Xóa khoảng cách giữa các ô */
+}
+
+th, td {
+    padding: 12px; /* Thêm khoảng cách cho ô */
+    text-align: center; /* Căn giữa nội dung */
+    border: 1px solid #dddddd; /* Đường viền màu xám nhạt */
+}
+
+th {
+    background-color: #f2f2f2; /* Nền tiêu đề bảng màu xám nhạt */
+    font-weight: bold; /* Đậm chữ tiêu đề */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Màu nền cho các hàng chẵn */
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+a:hover {
+    color: #00ffcc;
+}

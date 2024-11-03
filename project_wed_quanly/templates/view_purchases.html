@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh Sách Sách Đã Mua</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view_table.css') }}">
+</head>
+<body>
+    <h1>Danh Sách Sách Đã Mua</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% if purchases %}
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Tổng Tiền</th>
+                        <th>Ngày Mua</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for purchase in purchases %}
+                        <tr>
+                            <td>{{ purchase[0] }}</td>  <!-- Tên Sản Phẩm -->
+                            <td>{{ purchase[1] }}</td>  <!-- Số Lượng -->
+                            <td>{{ purchase[2] }}</td>  <!-- Tổng Tiền -->
+                            <td>{{ purchase[3] }}</td>  <!-- Ngày Mua -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>Bạn chưa mua bất kỳ sách nào.</p>
+    {% endif %}
+
+    <a href="/customer_dashboard">Quay lại bảng điều khiển</a>
+</body>
+</html>

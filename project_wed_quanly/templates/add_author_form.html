@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Tác Giả</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <h1>Thêm Tác Giả Mới</h1>
+    <form action="/add_author" method="post">
+        <label for="author_name">Tên Tác Giả:</label>
+        <input type="text" name="author_name" required>
+        
+        <button type="submit">Thêm Tác Giả</button>
+    </form>
+    
+    <a href="/employee_dashboard">Quay lại Bảng Điều Khiển</a>
+</body>
+</html>

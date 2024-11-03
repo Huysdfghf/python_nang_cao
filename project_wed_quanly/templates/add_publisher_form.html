@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Nhà Xuất Bản</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <h1>Thêm Nhà Xuất Bản Mới</h1>
+    <form action="/add_publisher" method="post">
+        <label for="publisher_name">Tên Nhà Xuất Bản:</label>
+        <input type="text" name="publisher_name" required>
+        
+        <label for="publisher_phone">Số Điện Thoại:</label>
+        <input type="text" name="publisher_phone" required>
+        
+        <button type="submit">Thêm Nhà Xuất Bản</button>
+    </form>
+    
+    <a href="/employee_dashboard">Quay lại Bảng Điều Khiển</a>
+</body>
+</html>
