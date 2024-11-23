@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    <form method="POST" action="/login">
+      <h1>Đăng Nhập</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+      <label for="username">Tên Người Dùng:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Mật Khẩu:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Đăng Nhập</button>
+      <a href="/register">Đăng Ký</a>
+    </form>
+  </body>
+</html>

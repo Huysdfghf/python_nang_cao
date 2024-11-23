@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Xóa Sách</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    <!-- Hiển thị thông báo flash chỉ ở đây -->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <form action="/delete_data" method="post">
+      <a href="/employee_dashboard"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#000"
+        >
+          <path
+            d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+          /></svg
+      ></a>
+      <h1>Xóa Sách</h1>
+
+      <label for="book_id">ID Sách Cần Xóa:</label>
+      <input type="text" name="book_id" required />
+
+      <button type="submit">Xóa Sách</button>
+    </form>
+  </body>
+</html>

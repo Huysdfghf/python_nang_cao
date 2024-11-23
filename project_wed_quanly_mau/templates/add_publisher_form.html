@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Thêm Nhà Xuất Bản</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <form action="/add_publisher" method="post">
+      <a href="/employee_dashboard"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#000"
+        >
+          <path
+            d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+          /></svg
+      ></a>
+      <h1>Thêm Nhà Xuất Bản Mới</h1>
+
+      <label for="publisher_name">Tên Nhà Xuất Bản:</label>
+      <input type="text" name="publisher_name" required />
+
+      <label for="publisher_phone">Số Điện Thoại:</label>
+      <input type="text" name="publisher_phone" required />
+
+      <button type="submit">Thêm Nhà Xuất Bản</button>
+    </form>
+  </body>
+</html>

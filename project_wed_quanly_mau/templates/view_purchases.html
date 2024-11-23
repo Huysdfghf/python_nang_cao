@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Sách Đã Mua</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+    <link rel="stylesheet" href="../static/css/style_table.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="/customer_dashboard" class="back-link"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000"
+          >
+            <path
+              d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+            /></svg
+        ></a>
+        <h1>Danh Sách Sách Đã Mua</h1>
+      </div>
+
+      <!-- Hiển thị thông báo -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+
+      <!-- Bảng hiển thị thông tin sách đã mua -->
+      {% if purchases %}
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Tên Sản Phẩm</th>
+              <th>Số Lượng</th>
+              <th>Tổng Tiền</th>
+              <th>Ngày Mua</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for purchase in purchases %}
+            <tr>
+              <td>{{ purchase[0] }}</td>
+              <!-- Tên Sản Phẩm -->
+              <td>{{ purchase[1] }}</td>
+              <!-- Số Lượng -->
+              <td>{{ purchase[2] }}</td>
+              <!-- Tổng Tiền -->
+              <td>{{ purchase[3] }}</td>
+              <!-- Ngày Mua -->
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p style="text-align: center; padding: 20px">
+        Bạn chưa mua bất kỳ sách nào.
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>

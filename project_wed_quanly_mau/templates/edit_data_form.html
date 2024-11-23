@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>edit sách</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    <!-- Hiển thị thông báo flash chỉ ở đây -->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <form action="/edit_data" method="post">
+      <a href="/employee_dashboard"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#000"
+        >
+          <path
+            d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+          /></svg
+      ></a>
+      <h1>Sửa Thông Tin Sách</h1>
+
+      <label for="book_id">ID Sách:</label>
+      <input type="text" name="book_id" required />
+
+      <label for="new_name">Tên Sách Mới:</label>
+      <input type="text" name="new_name" />
+
+      <label for="new_price">Giá Mới:</label>
+      <input type="text" name="new_price" />
+
+      <button type="submit">Sửa Thông Tin</button>
+    </form>
+  </body>
+</html>

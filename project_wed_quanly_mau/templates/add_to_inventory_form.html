@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>nhập kho</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    <form action="/add_to_inventory" method="post">
+      <a href="/employee_dashboard"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#000"
+        >
+          <path
+            d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+          /></svg
+      ></a>
+      <h1>Nhập Kho Hàng</h1>
+
+      <label for="book_id">ID Sách:</label>
+      <input type="text" name="book_id" required />
+
+      <label for="quantity">Số Lượng Nhập:</label>
+      <input type="text" name="quantity" required />
+
+      <label for="inventory_name">Tên Kho:</label>
+      <input type="text" name="inventory_name" required />
+
+      <label for="inventory_address">Địa Chỉ Kho:</label>
+      <input type="text" name="inventory_address" required />
+
+      <button type="submit">Nhập Kho</button>
+    </form>
+  </body>
+</html>

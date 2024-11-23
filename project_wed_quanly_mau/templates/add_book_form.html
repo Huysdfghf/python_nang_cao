@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <form action="/add_book" method="post">
+      <a class="icon" href="/employee_dashboard"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#000"
+        >
+          <path
+            d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+          /></svg
+      ></a>
+      <h1>Thêm Sách Mới</h1>
+
+      <label for="book_name">Tên Sách:</label>
+      <input type="text" name="book_name" required />
+
+      <label for="author_id">ID Tác Giả:</label>
+      <input type="text" name="author_id" required />
+
+      <label for="price">Giá:</label>
+      <input type="text" name="price" required />
+
+      <label for="publisher_id">ID Nhà Xuất Bản:</label>
+      <input type="text" name="publisher_id" required />
+
+      <button type="submit">Thêm Sách</button>
+    </form>
+  </body>
+</html>

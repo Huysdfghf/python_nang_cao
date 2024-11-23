@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kho Hàng</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+    <link rel="stylesheet" href="../static/css/style_table.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="/employee_dashboard"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000"
+          >
+            <path
+              d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"
+            /></svg
+        ></a>
+        <h1>Kho Hàng</h1>
+      </div>
+
+      <!-- Hiển thị thông báo lỗi nếu có -->
+      {% if error_message %}
+      <div class="alert">{{ error_message }}</div>
+      {% endif %}
+
+      <!-- Form tìm kiếm sản phẩm -->
+      <div class="search-container">
+        <form action="/view_inventory" method="GET">
+          <input
+            type="text"
+            name="book_id"
+            placeholder="Nhập ID Sản Phẩm (hoặc để trống để xem tất cả)"
+          />
+          <button type="submit">Tìm kiếm</button>
+        </form>
+      </div>
+
+      {% if inventory %}
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Sản Phẩm</th>
+              <th>Số Lượng</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in inventory %}
+            <tr>
+              <td>{{ item[0] }}</td>
+              <!-- ID Sản Phẩm -->
+              <td>{{ item[1] }}</td>
+              <!-- Tên Sản Phẩm -->
+              <td>{{ item[2] }}</td>
+              <!-- Tổng Số Lượng -->
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p style="text-align: center; padding: 20px">
+        Không có sản phẩm nào trong kho.
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="../static/css/style_form.css" />
+  </head>
+  <body>
+    <form method="POST" action="/register">
+      <h1>Đăng Ký Tài Khoản</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              <ul>
+                  {% for category, message in messages %}
+                      <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endwith %}
+
+      <label for="username">Tên Người Dùng:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="sdt">Số Điện Thoại:</label>
+      <input type="text" id="sdt" name="sdt" pattern="^\d{10,15}$" required
+             title="Số điện thoại phải chứa từ 10 đến 15 chữ số.">
+
+      <label for="password">Mật Khẩu:</label>
+      <input type="password" id="password" name="password" pattern=".{6,}" required
+             title="Mật khẩu phải có ít nhất 6 ký tự.">
+
+      <button type="submit">Đăng Ký</button>
+      <a href="/login">Quay Lại Đăng Nhập</a>
+    </form>
+  </body>
+</html>
